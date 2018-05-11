@@ -82,6 +82,7 @@ app.post('/delFav', function (req , res) { //request result
     } );
 } );
 
+
 app.get('/getFav', function (req , res) { //request result
     // Connect to the server and open database 'MoviesDB'
     MongoClient.connect( url , function (err , connection) {
@@ -105,6 +106,7 @@ app.get('/getFav', function (req , res) { //request result
     } );
 } );
 
+
 app.post('/addSearchQuery', function (req) { //request result
     // Connect to the server and open database 'MoviesDB'
     MongoClient.connect( url , function (err , connection) {
@@ -122,6 +124,7 @@ app.post('/addSearchQuery', function (req) { //request result
 
     } );
 } );
+
 
 app.get('/getSearchHistory', function (req , res) { //request result
     // Connect to the server and open database 'MoviesDB'
@@ -149,9 +152,11 @@ app.get('/getSearchHistory', function (req , res) { //request result
     } );
 } );
 
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
+
 
 var insertSearchQuery = function(db, searchQuery, callback) {
     var collection = db.collection('searchHistory');
@@ -177,6 +182,7 @@ var insertSearchQuery = function(db, searchQuery, callback) {
             callback(result);
         });
 }
+
 
 var insertMovie = function(db, movie, callback) {
     var collection = db.collection('favMovies');
